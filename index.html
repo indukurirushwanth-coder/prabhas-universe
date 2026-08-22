@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Prabhas Universe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ─── SCROLL PROGRESS ─── -->
+  <div id="scrollProgress"></div>
+
+  <!-- ─── NAV ─── -->
+  <nav>
+    <div class="logo"><span class="logo-star">&#9733;</span> THE PRABHAS UNIVERSE</div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
+    <div class="nav-links" id="navLinks">
+      <a href="#movies">Filmography</a>
+      <a href="#boxoffice">Box Office</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#awards">Awards</a>
+      <a href="#articles">Articles</a>
+      <a href="#quiz">Quiz</a>
+      <a href="#footer">About</a>
+    </div>
+  </nav>
+
+  <!-- ─── HERO ─── -->
+  <section class="hero" id="hero">
+    <div class="hero-bg" id="heroBg" aria-hidden="true"></div>
+    <div class="hero-particles" id="particles"></div>
+    <div class="hero-content fade-in">
+      <div class="hero-badge">The Rebel Star</div>
+      <h1>THE PRABHAS<br />UNIVERSE</h1>
+      <p class="hero-dialogue">
+        Star ante Rebel a ra, Rebel ante Raaje ra, Raju ante Rebel a ra, Rebel Starrrrrrr
+      </p>
+      <div class="hero-featured">
+        <span>INDIA'S BIGGEST SUPERSTAR</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── STATS STRIP ─── -->
+  <div class="stats-strip fade-in">
+    <div class="stat-item"><div class="stat-num" id="statFilms">27</div><div class="stat-label">Films</div></div>
+    <div class="stat-item"><div class="stat-num" id="statYears">25</div><div class="stat-label">Years</div></div>
+    <div class="stat-item"><div class="stat-num" id="statBlockbusters">4</div><div class="stat-label">Blockbusters</div></div>
+    <div class="stat-item"><div class="stat-num" id="statLanguages">8</div><div class="stat-label">Languages</div></div>
+    <div class="stat-item"><div class="stat-num" id="statDirectors">18</div><div class="stat-label">Directors</div></div>
+  </div>
+
+  <!-- ─── MOVIES SECTION ─── -->
+  <section id="movies" style="padding:80px 0;">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2>The <span>Filmography</span></h2>
+        <p>Every frame, every era — the complete cinematic odyssey</p>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="filter-bar fade-in">
+        <div class="search-wrap">
+          <i class="fas fa-search"></i>
+          <input type="text" id="searchInput" placeholder="Search movies..." />
+        </div>
+        <div class="filter-tabs" id="filterTabs">
+          <button class="filter-tab active" data-filter="all">All</button>
+          <button class="filter-tab" data-filter="blockbuster">Blockbusters</button>
+          <button class="filter-tab" data-filter="action">Action / Sci-Fi</button>
+          <button class="filter-tab" data-filter="vintage">Vintage / Romance</button>
+        </div>
+      </div>
+
+      <div class="movie-grid" id="movieGrid"></div>
+    </div>
+  </section>
+
+  <!-- ─── BOX OFFICE DASHBOARD ─── -->
+  <section class="boxoffice-section" id="boxoffice">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2>Box Office <span>Dashboard</span></h2>
+        <p>The Rebel Star rules the collection charts — India's biggest grossers</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="boxoffice-table fade-in">
+        <div class="boxoffice-head">
+          <span>Movie</span>
+          <span style="text-align:right;">Collection</span>
+        </div>
+        <div id="boxofficeBody"></div>
+      </div>
+      <p class="boxoffice-note">Worldwide gross estimates as per box office trackers</p>
+    </div>
+  </section>
+
+  <!-- ─── PHOTO GALLERY ─── -->
+  <section class="gallery-section" id="gallery">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2>Photo <span>Gallery</span></h2>
+        <p>Iconic moments and posters from the Rebel Star's greatest films</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="gallery-grid" id="galleryGrid"></div>
+    </div>
+  </section>
+
+  <!-- ─── LIGHTBOX ─── -->
+  <div class="lightbox" id="lightbox">
+    <button class="lb-btn lb-close" id="lbClose"><i class="fas fa-times"></i></button>
+    <div class="lightbox-title" id="lbTitle"></div>
+    <div class="lightbox-count" id="lbCount"></div>
+    <div class="lightbox-stage" id="lbStage">
+      <img id="lbImage" src="" alt="" draggable="false" />
+    </div>
+    <div class="lightbox-tools">
+      <button class="lb-btn" id="lbPrev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+      <button class="lb-btn" id="lbZoomOut" aria-label="Zoom out"><i class="fas fa-minus"></i></button>
+      <button class="lb-btn" id="lbZoomIn" aria-label="Zoom in"><i class="fas fa-plus"></i></button>
+      <button class="lb-btn" id="lbReset" aria-label="Reset zoom"><i class="fas fa-expand-arrows-alt"></i></button>
+      <button class="lb-btn" id="lbFullscreen" aria-label="Fullscreen"><i class="fas fa-expand"></i></button>
+      <button class="lb-btn" id="lbNext" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+    </div>
+  </div>
+
+  <!-- ─── TIMELINE ─── -->
+  <section class="timeline-section" id="timeline">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2>The <span>Evolution</span></h2>
+        <p>From debutante to global icon — a timeline of legends</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="timeline" id="timelineContainer"></div>
+    </div>
+  </section>
+
+  <!-- ─── MODAL ─── -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
+      <div class="modal-inner">
+        <div class="modal-poster-wrap">
+          <img class="modal-poster" id="modalPoster" src="" alt="" />
+          <div class="modal-poster-gradient"></div>
+          <span class="modal-poster-badge" id="modalBadge"></span>
+        </div>
+        <div class="modal-body">
+          <h3 class="modal-title" id="modalTitle"></h3>
+          <div class="modal-meta" id="modalMeta"></div>
+          <p class="modal-synopsis" id="modalSynopsis"></p>
+          <div class="modal-dialogue" id="modalDialogue"></div>
+          <div class="modal-crew" id="modalCrew"></div>
+          <div class="modal-info" id="modalInfo"></div>
+          <button class="btn btn-gold" id="watchTrailerBtn" style="width:100%;justify-content:center;">
+            <i class="fas fa-play"></i> Watch Trailer
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── BACK TO TOP ─── -->
+  <button id="backToTop" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+
+  <!-- ─── AWARDS ─── -->
+  <section class="awards-section" id="awards">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2>Awards & <span>Honours</span></h2>
+        <p>The Rebel Star's trophy cabinet — recognition from across the industry</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="awards-grid" id="awardsGrid"></div>
+    </div>
+  </section>
+
+  <!-- ─── ARTICLES ─── -->
+  <section class="articles-section" id="articles">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2>The <span>Chronicles</span></h2>
+        <p>Stories, records and insights from the journey of the Rebel Star</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="articles-grid" id="articlesGrid"></div>
+    </div>
+  </section>
+
+  <!-- ─── QUIZ ─── -->
+  <section class="quiz-section" id="quiz">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2>Rebel Star <span>Quiz</span></h2>
+        <p>Think you know everything about Prabhas? Prove it.</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="quiz-box fade-in" id="quizBox">
+        <div class="quiz-progress" id="quizProgress"></div>
+        <div class="quiz-question" id="quizQuestion"></div>
+        <div class="quiz-options" id="quizOptions"></div>
+        <div class="quiz-result quiz-hide" id="quizResult">
+          <div class="score" id="quizScore"></div>
+          <div class="msg" id="quizMsg"></div>
+          <button class="btn btn-gold" id="quizRestart"><i class="fas fa-redo"></i> Play Again</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer id="footer">
+    <div class="container">
+      <p class="footer-quote">A Star is not born in a day. It takes years of silence, struggle, and fire. The Rebel Star is proof.</p>
+      <p class="footer-tagline">&#9733; Rebel Star &#9733; Darling &#9733; Baahubali &#9733; Salaar &#9733; Kalki &#9733;</p>
+      <p class="footer-tribute">Forever the <strong>Rebel Star</strong></p>
+      <p class="footer-sub">A fan-built cinematic archive celebrating the legacy of Prabhas.</p>
+      <div class="footer-socials">
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/actorprabhas/?hl=en" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="#" aria-label="IMDb"><i class="fab fa-imdb"></i></a>
+      </div>
+      <p class="footer-sub">&copy; 2026 The Prabhas Universe &middot; Crafted with <span style="color:#C5A059;">&#9829;</span> by a fan &middot; Not affiliated with official channels.</p>
+    </div>
+  </footer>
+
+  <script src="js/movies.js"></script>
+  <script src="js/timeline.js"></script>
+  <script src="js/awards.js"></script>
+  <script src="js/articles.js"></script>
+  <script src="js/quiz.js"></script>
+  <script src="js/particles.js"></script>
+  <script src="js/modal.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
